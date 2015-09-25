@@ -10,4 +10,17 @@
         android:queryHint="Name"
         ></SearchView>
 
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridview"
+        android:layout_gravity="center"
+        android:columnWidth="90dp"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="10dp"
+        android:stretchMode="columnWidth"></GridView>
+
+
 </LinearLayout>
