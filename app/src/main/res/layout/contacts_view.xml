@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name"
-            android:text="Name: Raam"
+            android:text=""
             android:padding="3dp"
             android:textSize="16dp" />
 
@@ -40,13 +40,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/phonenumber"
-            android:text="# 7879851372" />
+            android:text="" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/email"
-            android:text="Email: raam@gmail.com"/>
+            android:text=""/>
 
 
     </LinearLayout>

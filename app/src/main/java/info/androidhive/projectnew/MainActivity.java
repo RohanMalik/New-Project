@@ -1,16 +1,30 @@
 package info.androidhive.projectnew;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity implements FragmentA.ListViewSelection {
 
+
+
+    android.support.v7.app.ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("New project");
+
+        ColorDrawable colorDrawable = new ColorDrawable();
+        colorDrawable.setColor(Color.parseColor("#F48FB1"));
+
+        actionBar.setBackgroundDrawable(colorDrawable);
+
 
         if (savedInstanceState == null)
         {
@@ -18,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentB, new FragmentB()).commit();
         }
 
+
+
+
+
+
+    }
+
+    public void setActionBarTitle(String title) {
+
+        actionBar.setTitle(title);
     }
 
     @Override
@@ -41,4 +65,26 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void changeListPosition(String letter) {
+        FragmentB contactsFragment = (FragmentB) getSupportFragmentManager().findFragmentById(R.id.fragmentB);
+
+        if (contactsFragment !=null)
+        {
+            contactsFragment.changePosition(letter);
+        }
+    }
+
+    @Override
+    public void searchContacts(String query) {
+        FragmentB contactsFragment = (FragmentB) getSupportFragmentManager().findFragmentById(R.id.fragmentB);
+
+        if (contactsFragment !=null)
+        {
+           contactsFragment.searchConatctsList(query);
+        }
+    }
+
+
 }
